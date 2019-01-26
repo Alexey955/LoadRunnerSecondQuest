@@ -13,9 +13,9 @@ public class Main {
         String name = "login";
         String password = "password";
 
-        File allUsers = new File("AllUsers");
+        File allUsers = new File("Login.dat");
         allUsers.createNewFile();
-        Files.write(Paths.get("AllUsers"), "Login,Password".getBytes());
+        Files.write(Paths.get("Login.dat"), "Login,Password".getBytes());
 
         File user;
 
@@ -26,8 +26,8 @@ public class Main {
             user = new File("Users/" + fullName);
             user.createNewFile();
 
-            Files.write(Paths.get("Users/" + fullName), fullPassword.getBytes());
-            Files.write(Paths.get("AllUsers"), ("\n" + fullName + "," + fullPassword).getBytes(), StandardOpenOption.APPEND);
+            Files.write(Paths.get("Users/" + fullName), (fullPassword + "\r\n\r\n;").getBytes());
+            Files.write(Paths.get("Login.dat"), ("\r\n" + fullName + "," + fullPassword).getBytes(), StandardOpenOption.APPEND);
         }
     }
 }
