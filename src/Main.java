@@ -26,7 +26,7 @@ public class Main {
             user = new File("Users/" + fullName);
             user.createNewFile();
 
-            Files.write(Paths.get("Users/" + fullName), (fullPassword + "\r\n\r\n;").getBytes());
+            Files.write(Paths.get("Users/" + fullName), (fullPassword + "\r\n" +"Jojo;Bean" + "\r\n\r\n\r\n;\r\n").getBytes());
             Files.write(Paths.get("Login.dat"), ("\r\n" + fullName + "," + fullPassword).getBytes(), StandardOpenOption.APPEND);
         }
     }
